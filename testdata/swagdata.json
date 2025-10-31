@@ -1,0 +1,10 @@
+{
+    "username" :"standard_user",
+    "password" : "secret_sauce",
+    "invalidusername": "dsfgbnh",
+    "invalidpassword": "e34rhg2",
+    "lockedun": "locked_out_user",
+    "problemun":"problem_user" ,
+    "performanceun": "performance_glitch_user"
+
+}
