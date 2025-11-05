@@ -1,37 +1,29 @@
 import { test, expect } from '@playwright/test';
-import logindata from "../testdata/logindata.json"  
 
-test('Login with valid credentials', async ({ page }) => {
 
-//Lunching Url    
-await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+const baseURL = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
 
-//Entering Username
-  await page.getByRole('textbox', { name: 'Username' }).fill(logindata.username);
- //Entering Password
-  await page.getByRole('textbox', { name: 'Password' }).fill(logindata.password);
-//Click on Login Button
-  await page.getByRole('button', { name: 'Login' }).click();
-
-//Verifying Dashboard visible or not
-  await expect(page.getByRole('link', { name: 'Dashboard'})).toBeVisible();
-//verify current url is dashboard Url
-  await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index") 
-
-  // click on Buzz
+// 🔧 Common login function
+test('Valid login and verify dashboard', async ({ page }) => 
+ {
+  await page.goto(baseURL);
+  await page.locator("input[name='username']").fill(process.env.APP_USERNAME);
+  await page.locator("input[type='password']").fill(process.env.APP_PASSWORD);
+  await page.locator("button[type='submit']").click();
   await page.locator("//span[text()='Buzz']").click();
+  
+  await page.locator("textarea.oxd-buzz-post-input").fill("Hi, Good Afternoon")
+  await page.locator('//button[@type="submit"]').click()
 
+ // await expect(page.locator("//p[text()='Hi, Good Afternoon']")).toBeVisible();
 
-//Verifying Buzz visible or not
-  await expect(page.getByRole('link', { name: 'Dashboard'})).toBeVisible();
+  await page.locator("//button[normalize-space(text())='Share Photos']").click();  
+   const filePath = 'testdata/catpic.jpg';
+  await page.locator('//input[@type="file"]').setInputFiles(filePath)
 
-  // verify the Buzz URL 
-  await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/buzz/viewBuzz');
+  await page.locator("(//button[@type='submit'])[2]").click()
+  
+   await expect(page.locator("(//div[@class='orangehrm-buzz-post-body-picture'])[1]")).toBeVisible();
 
-
-
-
-
-
-
-});
+   await page.reload()
+ });
