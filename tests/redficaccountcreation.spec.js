@@ -12,8 +12,12 @@ await page.locator('#newpasswd1').fill(data.password)
 
 await page.locator('select.day').selectOption(data.day)
 await page.locator('select.middle.month').selectOption(data.month)
-await page.locator('select.year').selectOption(data.year)
+await page.locator('select.year').selectOption(data.year) 
 
+const sts_radio_btn = await page.locator('(//input[@value="m"])').isChecked()
+if (sts_radio_btn){
+  await page.locator('(//input[@type="radio"])[2]').check()
+}
 await page.locator("(//input[@type='radio'])[1]").check()
 await page.locator("//label[text()='City']/following-sibling::select").selectOption(data.city)
 
