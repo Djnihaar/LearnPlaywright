@@ -26,4 +26,6 @@ test('Valid login and verify dashboard', async ({ page }) =>
    await expect(page.locator("(//div[@class='orangehrm-buzz-post-body-picture'])[1]")).toBeVisible();
 
    await page.reload()
+
+   
  });

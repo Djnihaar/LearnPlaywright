@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import swagdata from "../testdata/swagdata.json"
+import swagdata from "../../testdata/swagdata.json"
 
 test('Login with valid cred', async ({ page }) => {
 

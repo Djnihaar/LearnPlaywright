@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import data from "../testdata/redicaccountdata.json"
+import data from "../../testdata/redicaccountdata.json"
 
 test('Verify Creating rediff account', async ({ page }) => {
 
