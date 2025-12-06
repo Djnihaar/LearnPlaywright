@@ -7,6 +7,9 @@ import { test, expect } from '@playwright/test';
 //import {addEmployeePage} from "../pages/addemployee.po"
 
 //import data from "../testdata/PIM/addemp.json"
+import logindata from "../../testdata/logindata.json"
+
+
 
 
 let login

@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { loginPage } from "../pages/loginpage.po";
-import logindata from "../testdata/logindata.json"
+//import logindata from "../testdata/logindata.json"
+import logindata from "../testdata/logindata.json";
 
 
 let login
