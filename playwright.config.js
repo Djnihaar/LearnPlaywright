@@ -38,8 +38,9 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
-        //baseURL: "https://opensource-demo.orangehrmlive.com",
+        baseURL: "https://opensource-demo.orangehrmlive.com",
         testIdAttribute: "aria-label",
+        acceptDownloads: true,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on",

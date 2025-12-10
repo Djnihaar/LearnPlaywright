@@ -73,9 +73,9 @@ test.describe('Automation - Working With Elements', () => {
     test('Download Multiple files and assert', async ({ page }) => {
         await page.goto('https://the-internet.herokuapp.com/download')
 
-        const DownloadLinks = ['//a[@href="download/input.csv"]', "//a[text()='tkinter 2.png']"]
+        const DownloadLinks = ['//a[@href="download/Jpeg_with_exif.jpeg"]', "//a[@href='download/tmplsoxir3q.txt']"]  
 
-        for (let link of DownloadLinks) {
+        for (let link of DownloadLinks) {   
 
 
             const [download] = await Promise.all([
@@ -89,6 +89,9 @@ test.describe('Automation - Working With Elements', () => {
 
         }
     })
+
+ 
+
 
     test('Direct Download and assert', async ({ page }) => {
 

@@ -12,7 +12,7 @@
 
 import { test, expect } from "@playwright/test";
 
-test(`Drop down value Select`, async ({ page }) => {
+test(`Drop down value Select`, async ({ page }) => {  
 
   await page.goto('https://register.rediff.com/register/register.php?FormName=user_details');
   await page.waitForTimeout(2000);

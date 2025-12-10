@@ -10,6 +10,7 @@ exports.addEmployeePage = class addEmployeePage {
     this.lastNameInput = page.locator("input[name='lastName']");
     this.uploadPhotoBtn = page.locator('//input[@type="file"]');
     this.SaveBtn = page.locator('button[type="submit"]');
+    this.successMsg = page.locator("//p[text()='Successfully Saved']");
     this.EmpDetails = page.locator("//h6[text()='Personal Details']");
 
   }
@@ -28,6 +29,7 @@ exports.addEmployeePage = class addEmployeePage {
     await this.SaveBtn.click();
   }
   async empCreationSuccess() {
-    await expect(this.EmpDetails).toBeVisible();
+    await expect(this.successMsg).toBeVisible();
+    //await expect(this.EmpDetails).toBeVisible();
   }
 }
